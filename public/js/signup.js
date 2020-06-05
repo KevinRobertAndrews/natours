@@ -5,7 +5,7 @@ export const signup = async (email, password) => {
   try {
     const res = await axios({
       method: "POST",
-      url: "http://localhost:3000/api/v1/users/signup",
+      url: "/api/v1/users/signup",
       data: {
         email,
         password,
@@ -25,7 +25,7 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: "POST",
-      url: "http://localhost:3000/api/v1/users/login",
+      url: "/api/v1/users/login",
       data: {
         email,
         password,
@@ -47,7 +47,7 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: "GET",
-      url: "http://localhost:3000/api/v1/users/logout",
+      url: "/api/v1/users/logout",
     });
 
     // 📝 location.reload(true) needs to be set to true so that the browser

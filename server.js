@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 // Global uncaught exception handler
 process.on("uncaughtException", (err) => {
   console.log(err.name, err.message, err);
-  console.log("UNCAUGHT EXCEPTION! Shutting down...");
+  console.log("UNCAUGHT EXCEPTION! 💥 Shutting down...");
   process.exit(1);
 });
 

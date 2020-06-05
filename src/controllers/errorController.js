@@ -44,6 +44,7 @@ const sendErrorDev = (err, req, res) => {
     });
   }
   // RENDERED WEBSITE
+  console.error(`ERROR 💥`, err);
   return res.status(err.statusCode).render("error", {
     title: "Somthing went wrong!",
     msg: err.message,
@@ -63,7 +64,7 @@ const sendErrorProd = (err, req, res) => {
       // 📝 Programming or other unknown error
       // 🔒 Don't leak error details!
     }
-    console.error(`ERROR`, err);
+    console.error(`ERROR 💥`, err);
     return res.status(500).json({
       status: "error",
       msg: "Something went wrong.",
