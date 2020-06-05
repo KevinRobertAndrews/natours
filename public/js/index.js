@@ -6,6 +6,7 @@ import "@babel/polyfill";
 import { login, logout } from "./login";
 import { displayMap } from "./mapbox";
 import { updateSettings } from "./updateSettings";
+import { showAlert } from "./alerts";
 
 import { bookTour } from "./stripe";
 
@@ -82,3 +83,6 @@ if (bookBtn)
     const { tourId } = event.target.dataset;
     bookTour(tourId);
   });
+
+const alertMessage = document.querySelector("body").dataset.alert;
+if (alert) showAlert("success", alertMessage, 20);
