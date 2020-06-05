@@ -4,7 +4,6 @@ node_modules
 # Folders
 config
 dev-data
-public/img
 .cache
 .vscode
 
