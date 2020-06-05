@@ -30,7 +30,7 @@ const viewRouter = require("./src/views/viewRoutes");
 const tourRouter = require("./src/tours/tourRoutes");
 const userRouter = require("./src/users/userRoutes");
 const reviewRouter = require("./src/reviews/reviewRoutes");
-const bookingRouter = require("./src/bookings/bookingRoutes");
+const bookingController = require("./src/bookings/bookingController");
 
 /* --- APPLICATION ---  */
 
@@ -71,6 +71,13 @@ const limiter = rateLimit({
   message: "Too many requests from this IP. Please try again in an hour",
 });
 app.use("/api", limiter);
+
+// Stripe needs the response to be raw, and not JSON.
+app.post(
+  "/webhook-checkout",
+  express.raw({ type: "application/json" }),
+  bookingController.webhookCheckout
+);
 
 // Based on body-parser, reads data from body into req.body
 app.use(express.json({ limit: "10kb" }));
