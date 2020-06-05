@@ -1,0 +1,12 @@
+node_modules
+*.env
+
+# Folders
+config
+dev-data
+public/img
+.cache
+.vscode
+
+# Files
+Challenges.txt

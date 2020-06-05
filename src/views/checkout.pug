@@ -1,0 +1,14 @@
+extends base
+
+block content
+    form#payment-form
+      #card-element
+        // Stripe.js injects the Card Element
+      button#submit
+        #spinner.spinner.hidden
+        span#button-text Pay
+      p#card-errors(role="alert")
+      p.result-message.hidden
+        | Payment succeeded, see the result in your
+        a(href="" target="_blank") Stripe dashboard.
+        |  Refresh the page to pay again.
