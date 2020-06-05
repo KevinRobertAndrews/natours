@@ -19,6 +19,7 @@ const xss = require("xss-clean");
 const hpp = require("hpp");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
+const cors = require("cors");
 
 // Custom error handling
 const AppError = require("./src/utils/appError");
@@ -42,6 +43,15 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "src/views"));
 
 /* --- GLOBAL MIDDLEWARE ---  */
+
+//Implement CORS
+app.use(cors());
+// Access-Control-Allow-Origin *
+// This simple implementation only uses simple verbs -> get and post
+
+// Allow for more complex http verbs by accepting
+// a preflight phase
+app.options("*", cors());
 
 // Serve static files from the public folder
 app.use(express.static(path.join(__dirname, "public")));
