@@ -6,11 +6,13 @@ const AppError = require("../utils/appError");
 
 exports.alerts = (req, res, next) => {
   const { alert } = req.query;
+  console.log(alert);
 
   if (alert === "booking") {
     res.locals.alert =
       "Your booking was successful. Please check your email for confirmation. If your booking doesn't show here immediately, please check again later.";
   }
+  next();
 };
 
 exports.getOverview = catchAsync(async (req, res, next) => {
