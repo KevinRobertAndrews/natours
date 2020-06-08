@@ -28,7 +28,7 @@ const createSendToken = (user, statusCode, req, res) => {
     // 🔒 req.headers("x-forwarded-proto") is Heroku specific because
     // Heroku has a proxy to redirect requests to a middleman for
     // security reasons
-    secure: req.secure || req.headers("x-forwarded-proto") === "https",
+    secure: req.secure || req.headers["x-forwarded-proto"] === "https",
   });
 
   // Remove password from output

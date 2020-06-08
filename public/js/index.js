@@ -3,6 +3,7 @@
 
 import axios from "axios";
 import "@babel/polyfill";
+import { signup } from "./signup";
 import { login, logout } from "./login";
 import { displayMap } from "./mapbox";
 import { updateSettings } from "./updateSettings";
@@ -12,7 +13,8 @@ import { bookTour } from "./stripe";
 
 // DOM ELEMENTS
 const mapBox = document.getElementById("map");
-const loginForm = document.querySelector(".form--login");
+const loginForm = document.querySelector(".login-form");
+const signupForm = document.querySelector(".signup-form");
 const logoutBtn = document.querySelector(".nav__el--logout");
 const userDataForm = document.querySelector(".form-user-data");
 const userPasswordForm = document.querySelector(".form-user-password");
@@ -28,6 +30,18 @@ if (loginForm) {
   });
 }
 
+if (signupForm) {
+  signupForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const passwordConfirm = document.getElementById("passwordConfirm").value;
+    console.log(email, password);
+    signup(name, email, password, passwordConfirm);
+  });
+}
+
 if (logoutBtn) {
   logoutBtn.addEventListener("click", (event) => {
     event.preventDefault();
@@ -38,7 +52,6 @@ if (logoutBtn) {
 if (userDataForm) {
   userDataForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
     const form = new FormData();
     form.append("name", document.getElementById("name").value);
     form.append("email", document.getElementById("email").value);

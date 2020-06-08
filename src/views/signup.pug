@@ -2,14 +2,20 @@ extends base
 
 block content
   main.main
-    .login-form
+    .signup-form
       h2.heading-secondary.ma-bt-lg SIGN UP TODAY!
       form.form
         .form__group
-          label.form__label(for='email') Email address
+          label.form__label(for='name') Name
+          input#name.form__input(type='name', placeholder='Your Name', required)
+        .form__group
+          label.form__label(for='email') Email
           input#email.form__input(type='email', placeholder='you@example.com', required)
         .form__group.ma-bt-md
           label.form__label(for='password') Password
           input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+        .form__group.ma-bt-md
+          label.form__label(for='passwordConfirm') Confirm password
+          input#passwordConfirm.form__input(type='passwordConfirm', placeholder='••••••••', required, minlength='8')
         .form__group
-          button.btn.btn--green Login
+          button.btn.btn--green Signup
