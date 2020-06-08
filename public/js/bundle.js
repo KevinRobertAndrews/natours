@@ -8520,8 +8520,6 @@ var logout = /*#__PURE__*/function () {
 
           case 3:
             res = _context2.sent;
-            // 📝 location.reload(true) needs to be set to true so that the browser
-            // is forced to do a real reset, instead of reloading from the cache.
             if (res.data.staus = "success") window.location.assign("/");
             _context2.next = 10;
             break;

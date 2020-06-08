@@ -30,8 +30,6 @@ export const logout = async () => {
       url: "/api/v1/users/logout",
     });
 
-    // 📝 location.reload(true) needs to be set to true so that the browser
-    // is forced to do a real reset, instead of reloading from the cache.
     if ((res.data.staus = "success")) window.location.assign("/");
   } catch (err) {
     showAlert("error", "Error logging out! Please try again.");
