@@ -8408,7 +8408,7 @@ var signup = /*#__PURE__*/function () {
             res = _context.sent;
 
             if (res.data.status === "success") {
-              (0, _alerts.showAlert)("success", "You are signed up!");
+              (0, _alerts.showAlert)("success", "Weclome to Natours, ".concat(name, "!"));
               window.setTimeout(function () {
                 location.assign("/");
               }, 1500);
@@ -8522,7 +8522,7 @@ var logout = /*#__PURE__*/function () {
             res = _context2.sent;
             // 📝 location.reload(true) needs to be set to true so that the browser
             // is forced to do a real reset, instead of reloading from the cache.
-            if (res.data.staus = "success") window.location.reload(true);
+            if (res.data.staus = "success") window.location.assign("/");
             _context2.next = 10;
             break;
 
@@ -9008,7 +9008,6 @@ if (signupForm) {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var passwordConfirm = document.getElementById("passwordConfirm").value;
-    console.log(email, password);
     (0, _signup.signup)(name, email, password, passwordConfirm);
   });
 }
@@ -9027,7 +9026,6 @@ if (userDataForm) {
     form.append("name", document.getElementById("name").value);
     form.append("email", document.getElementById("email").value);
     form.append("photo", document.getElementById("photo").files[0]);
-    W;
     (0, _updateSettings.updateSettings)(form, "data");
   });
 }

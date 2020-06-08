@@ -16,7 +16,7 @@ export const signup = async (name, email, password, passwordConfirm) => {
     });
 
     if (res.data.status === "success") {
-      showAlert("success", "You are signed up!");
+      showAlert("success", `Weclome to Natours, ${name}!`);
       window.setTimeout(() => {
         location.assign("/");
       }, 1500);
