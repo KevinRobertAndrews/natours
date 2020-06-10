@@ -79,6 +79,10 @@ body {
   text-align: right !important;
 }
 
+.center {
+  text-align: center;
+}
+
 .line {
   margin: 6rem 0;
   width: 100%;
@@ -202,6 +206,7 @@ body {
   /*Add later when we use this for the button in form*/
   border: none;
   cursor: pointer;
+  text-align: center;
 }
 
 .btn:hover {
