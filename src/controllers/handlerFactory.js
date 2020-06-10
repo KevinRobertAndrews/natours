@@ -1,10 +1,12 @@
-const AppError = require('../utils/appError');
-const catchAsync = require('../utils/catchAsync');
-const APIFeatures = require('../utils/apiFeatures');
+const AppError = require("../utils/appError");
+const catchAsync = require("../utils/catchAsync");
+const APIFeatures = require("../utils/apiFeatures");
 
 // Yo, you just got ABSTRACTED, bro!
 exports.deleteOne = (Model) =>
   catchAsync(async (req, res, next) => {
+    console.log(req.params);
+
     const doc = await Model.findByIdAndDelete(req.params.id);
 
     if (!doc) {
@@ -12,7 +14,7 @@ exports.deleteOne = (Model) =>
     }
 
     res.status(204).json({
-      status: 'success',
+      status: "success",
       data: null,
     });
   });
@@ -29,7 +31,7 @@ exports.updateOne = (Model) =>
     }
 
     res.status(200).json({
-      status: 'success',
+      status: "success",
       data: {
         data: doc,
       },
@@ -41,7 +43,7 @@ exports.createOne = (Model) =>
     const doc = await Model.create(req.body);
 
     res.status(201).json({
-      status: 'success',
+      status: "success",
       data: {
         data: doc,
       },
@@ -59,7 +61,7 @@ exports.getOne = (Model, populateOptions) =>
     }
 
     res.status(200).json({
-      status: 'success',
+      status: "success",
       data: {
         data: doc,
       },
@@ -82,7 +84,7 @@ exports.getAll = (Model) =>
 
     // Send Response
     res.status(200).json({
-      status: 'success',
+      status: "success",
       results: doc.length,
       data: {
         data: doc,
