@@ -19,8 +19,8 @@ const app = require("./app");
 
 // Database keys
 const DB = process.env.DATABASE.replace(
-  "<PASSWORD>",
-  process.env.DATABASE_PASSWORD
+  "<password>",
+  process.env.MONGO_PASSWORD
 );
 
 // Setup mongoose options
